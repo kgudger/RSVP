@@ -89,6 +89,7 @@ def startOBS(whichone):
         os.startfile (r"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Microsoft PowerPoint Viewer .lnk")
     elif whichone == 2:
         os.startfile (r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
+#	subprocess.Popen([r"/usr/bin/google-chrome-stable %U" , "--app='data:text/html,<html><body><script>window.moveTo(580,240);window.resizeTo(1920,1080);</script></body></html>'"])
 
 root = tk.Tk()
 cFont = tkFont.Font(family="Arial", size=24)
