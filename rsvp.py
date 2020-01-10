@@ -31,6 +31,8 @@ def onExit(future):
     stopLites(d1,d2,d3)
     os.system("taskkill /f /im PPTVIEW.EXE")
     os.system("taskkill /f /im chrome.exe")
+    os.system("taskkill /f /im Imaginary Teleprompter.exe")
+    subprocess.call(['C:\\Program Files\\UltraMon\\UMMirrorClient.exe', '/stop'])
     print("OBS Exited")
 
 def startLites(d1,d2,d3):
@@ -90,6 +92,10 @@ def startOBS(whichone):
     elif whichone == 2:
 #        os.startfile (r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
         subprocess.Popen([r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" , "--app='data:text/html,<html><body><script>window.moveTo(580,240);window.resizeTo(1920,1080);</script></body></html>'"])
+    else:
+        print("Starting Teleprompter")
+        os.startfile (r"C:\Users\Editor\Documents\imaginary-teleprompter-2.3.4-64bit.exe")
+        subprocess.call(['C:\\Program Files\\UltraMon\\UMMirrorClient.exe', '/start'])
 root = tk.Tk()
 cFont = tkFont.Font(family="Arial", size=24)
 
@@ -111,7 +117,7 @@ rmimpp = ImageTk.PhotoImage(routpp)
 # radio buttons here
 tk.Radiobutton(root,text="RSVP with PowerPoint",padx=20,variable=v,value=1,image=myimpp,compound=tk.LEFT,font=cFont).pack(anchor=tk.W)
 tk.Radiobutton(root,text="RSVP with Browser",padx=20,variable=v,value=2,image=myImage,compound=tk.LEFT,font=cFont).pack(anchor=tk.W)
-tk.Radiobutton(root,text="RSVP Camera Only",padx=20,variable=v,value=3,image=rmimpp,compound=tk.LEFT,font=cFont).pack(anchor=tk.W)
+tk.Radiobutton(root,text="RSVP Camera With Teleprompter",padx=20,variable=v,value=3,image=rmimpp,compound=tk.LEFT,font=cFont).pack(anchor=tk.W)
 #other buttons here
 helpButton  = tk.Button(root,font=cFont,text="Help",command=help).pack(anchor=tk.W,side=tk.LEFT)
 startButton = tk.Button(root,font=cFont,text="Start",command=hello).pack(anchor=tk.W,side=tk.RIGHT)
