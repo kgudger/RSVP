@@ -31,7 +31,7 @@ def onExit(future):
     stopLites(d1,d2,d3)
     os.system("taskkill /f /im PPTVIEW.EXE")
     os.system("taskkill /f /im chrome.exe")
-    os.system("taskkill /f /im Imaginary Teleprompter.exe")
+    os.system("taskkill /f /im \"Imaginary Teleprompter.exe\"")
     subprocess.call(['C:\\Program Files\\UltraMon\\UMMirrorClient.exe', '/stop'])
     print("OBS Exited")
 
@@ -92,10 +92,22 @@ def startOBS(whichone):
     elif whichone == 2:
 #        os.startfile (r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
         subprocess.Popen([r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" , "--app='data:text/html,<html><body><script>window.moveTo(580,240);window.resizeTo(1920,1080);</script></body></html>'"])
+        print("Starting to wait")
+        time.sleep(5)
+        print("Wait ended, calling cmdow")
+#        subprocess.call(['C:\\Users\\Editor\\Documents\\cmdow','New Tab - Google Chrome','/SIZ','1516','1000', '/MOV','4333','0'])
+        print("Called cmdow")
     else:
         print("Starting Teleprompter")
-        os.startfile (r"C:\Users\Editor\Documents\imaginary-teleprompter-2.3.4-64bit.exe")
-        subprocess.call(['C:\\Program Files\\UltraMon\\UMMirrorClient.exe', '/start'])
+        subprocess.Popen([r"C:\Users\Editor\Documents\imaginary-teleprompter-2.3.4-64bit.exe"])
+        print("Starting to wait")
+        time.sleep(5)
+        print("Wait ended, calling cmdow")
+        subprocess.call(['C:\\Users\\Editor\\Documents\\cmdow','Teleprompter by Imaginary Sense','/SIZ','2466','1425', '/MOV','4055','0'])
+        print("Called cmdow")
+        print("Calling UltraMon")
+        subprocess.Popen([r"C:\\Program Files\\UltraMon\\UMMirrorClient.exe", '/start'])
+
 root = tk.Tk()
 cFont = tkFont.Font(family="Arial", size=24)
 
